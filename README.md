@@ -8,4 +8,5 @@ Proyecto de Machine Learning utilizando el dataset *Palmer Penguins* para clasif
 
 ## Estructura del Proyecto
 - `notebooks/`: Análisis Exploratorio de Datos (EDA).
+
 - `src/`: Scripts de procesamiento y modelado.
