@@ -1,0 +1,14 @@
+# Entorno virtual
+.venv/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Datos (opcional, pero recomendado si el dataset es muy pesado)
+data/*.csv
