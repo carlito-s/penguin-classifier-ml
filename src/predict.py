@@ -1,16 +1,23 @@
 import joblib
 import pandas as pd
+import os
 
 def predict_species(bill_length, bill_depth, flipper_length, body_mass, island, sex):
     """
     Toma medidas físicas y devuelve la especie predicha.
     """
+    # Obtener la ruta absoluta de la carpeta donde está este script
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    model_path = os.path.join(BASE_DIR, '..', 'penguin_model.pkl')
+    encoder_path = os.path.join(BASE_DIR, '..', 'species_encoder.pkl')
+
     # 1. Cargar el modelo y los codificadores
     try:
-        model = joblib.load('penguin_model.pkl')
-        label_encoder = joblib.load('species_encoder.pkl')
+        model = joblib.load(model_path)
+        label_encoder = joblib.load(encoder_path)
     except FileNotFoundError:
-        return "Error: No se encontró el modelo. Ejecuta model.py primero."
+        return f"Error: No se encontró el modelo en {model_path}. Revisa la ubicación."
 
     # 2. Preparar los datos de entrada
     # Nota: Deben tener el mismo formato que X_train (incluyendo One-Hot Encoding)
